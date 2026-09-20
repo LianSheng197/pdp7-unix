@@ -3,6 +3,21 @@
 # pdp7-unix
 
 
+## 魔改區域
+由於原版模擬電傳打字機的捲動速度，所以在每行輸出多了約 150 毫秒的等待時間。  
+很復古，但是對我這個現代人來說真的太慢了。
+
+所以我稍微加速了一下：  
+```
+vim src/sys/s7.s
+```
+原本 `tad o20` 的那行，改成 `tad d2`  
+這樣就從 `o20` = `decimal 16` 改成了 `decimal 2`  
+理論值 8 倍，但是後面其實還有一點影響，所以最終結果應該是 17\~33 毫秒的等待時間（1\~2 tick）
+
+備份檔放在 `src/sys/s7.s.bak`
+
+
 ## About
 
 pdp7-unix is a project to resurrect Unix on the PDP-7 from scans of the original

@@ -166,7 +166,7 @@ ttyrestart: 0
    skp			"  yes
    jmp ttyrestart i	"   no: return
    lac ttydelay		" get current tty delay
-   tad d2		" bump by 16
+   tad o20		" bump by 16
    rcr			" divide by two
    cma			" complement
    dac ttydelay		" save as delay countdown
