@@ -18,6 +18,12 @@ vim src/sys/s7.s
 備份檔放在 `src/sys/s7.s.bak`
 
 
+## 客製化設定
+`unixv0.simh`
+- 增加了 `set throttle 10M`，這個數值能確保 PDP-7 的絕大多數功能不受時脈限制，盡可能地快速完成任務，同時又不會因爲預設的 CPU 全速運轉導致風扇造成噪音問題及電費問題（笑）  
+  這個數值在我的環境（Ryzen 7 7700 @ 5.4GHz）下，模擬 PDP-7 的情況下，SIMH 僅使用 0.7 Cpu %。
+
+
 ## About
 
 pdp7-unix is a project to resurrect Unix on the PDP-7 from scans of the original
